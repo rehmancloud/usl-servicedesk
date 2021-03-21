@@ -5,12 +5,13 @@ import {
   TeamOutlined,
   CodeSandboxOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./index.css";
 import Header from "./Header";
 import { HtecLogo } from "../../utils/contentConstant";
 function Index({ children }) {
   const { Sider, Content } = Layout;
+  const location = useLocation();
   const styles = {
     navIcons: { fontSize: 20 },
     sidebar: {
@@ -38,27 +39,37 @@ function Index({ children }) {
         style={styles.sidebar}
       >
         <img src={HtecLogo} alt="htec-Logo" className="customLogo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+        <Menu
+          defaultSelectedKeys={["/"]}
+          selectedKeys={[location.pathname]}
+          theme="dark"
+          mode="inline"
+        >
           <Menu.Item
             className="nav-links"
-            key="1"
-            icon={<HomeOutlined style={styles.navIcons} />}
+            key="/"
+            icon={<HomeOutlined className="leftIcon" style={styles.navIcons} />}
           >
             <Link to="/" />
             Dashboard
           </Menu.Item>
           <Menu.Item
             className="nav-links"
-            key="2"
-            icon={<TeamOutlined style={styles.navIcons} />}
+            key="/Customer"
+            icon={<TeamOutlined className="leftIcon" style={styles.navIcons} />}
           >
             <Link to="/Customer" />
             Customer
           </Menu.Item>
           <Menu.Item
             className="nav-links"
-            key="3"
-            icon={<CodeSandboxOutlined style={styles.navIcons} />}
+            key="/Supplier"
+            icon={
+              <CodeSandboxOutlined
+                className="leftIcon"
+                style={styles.navIcons}
+              />
+            }
           >
             <Link to="/Supplier" />
             Supplier
