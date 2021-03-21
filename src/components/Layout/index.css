@@ -47,13 +47,11 @@
   float: right;
   padding: 0px 22px;
   cursor: pointer;
-  /* border-left: 1px solid grey; */
 }
 .header-link:hover {
   color: grey;
   float: right;
   padding: 0px 22px;
-  /* border-left: 1px solid grey; */
 }
 .ant-menu-inline-collapsed {
   width: auto !important;
@@ -61,7 +59,11 @@
 
 .site-layout-background {
   background-color: #fafafa;
-  width: 100%;
+  /* width: 100%; */
+  padding: 0 8px;
+  flex: auto !important;
+  min-height: "auto";
+  overflow: "scroll";
 }
 .customLogo {
   width: 55%;

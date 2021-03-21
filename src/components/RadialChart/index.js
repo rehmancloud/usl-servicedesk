@@ -3,7 +3,7 @@ import Chart from "react-apexcharts";
 import { Row, Col } from "antd";
 // import "../../custom.css";
 
-const RadialBarChart = ({ chartHeading }) => {
+function RadialBarChart({ chartHeading = "" }) {
   const options = {
     chart: {
       height: 130,
@@ -84,7 +84,7 @@ const RadialBarChart = ({ chartHeading }) => {
   };
   const series = [85, 55, 30];
 
-  let styles = {
+  const styles = {
     mainContainer: {
       flexDirection: "row",
       display: "flex",
@@ -126,8 +126,7 @@ const RadialBarChart = ({ chartHeading }) => {
         }}
       >
         <div style={styles.headContainer}>
-          <h3 className="customH3">{chartHeading} </h3>
-          {/* <p style={styles.cardHeading}>{chartHeading}</p> */}
+          <h5 className="customH3">{chartHeading} </h5>
         </div>
         <div style={styles.legendBox}>
           <div style={{ ...styles.colorBox, backgroundColor: "#29B9CB" }} />
@@ -162,6 +161,6 @@ const RadialBarChart = ({ chartHeading }) => {
       </Col>
     </Row>
   );
-};
+}
 
 export default RadialBarChart;

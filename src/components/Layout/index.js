@@ -15,7 +15,7 @@ function Index({ children }) {
   const styles = {
     navIcons: { fontSize: 20 },
     sidebar: {
-      height: "100vh",
+      // height: "100vh",
     },
   };
   const [state, setState] = useState({
