@@ -1,4 +1,4 @@
-import { Radio, Table, Tooltip } from "antd";
+import { Radio, Table, Tooltip, Row, Col } from "antd";
 import React, { Fragment, useState, useEffect } from "react";
 import "./index.css";
 function DataTable({
@@ -31,7 +31,7 @@ function DataTable({
         });
     });
     setTableHeader(h);
-  }, [columns]);
+  }, []);
 
   useEffect(() => {
     let tab = [];
@@ -39,25 +39,34 @@ function DataTable({
       if (t) tab.push({ label: t, value: t });
     });
     SETTABS(tab);
-  }, [tabs]);
+  }, []);
 
   return (
     <Fragment>
+      <Row style={{ margin: "18px 0 5px 0" }}>
+        <Col xs={12} md={TABS.length > 0 ? 14 : 24}>
+          <h5 className="main-heading">
+            {heading}
+            <small>{` ${subheading}`}</small>
+          </h5>
+        </Col>
+        {TABS.length > 0 && (
+          <Col xs={12} md={10}>
+            <div style={{ float: "right" }}>
+              <Radio.Group
+                size={"small"}
+                options={TABS}
+                onChange={onChangeTab}
+                value={activeTab}
+                optionType="button"
+                buttonStyle="solid"
+              />
+            </div>
+          </Col>
+        )}
+      </Row>
       <div className={``}>
-        <h5 className="customH3">
-          {heading}
-          <small>{subheading}</small>
-        </h5>
-        <span className="customSwitch">
-          <Radio.Group
-            size={"small"}
-            options={TABS}
-            onChange={onChangeTab}
-            value={activeTab}
-            optionType="button"
-            buttonStyle="solid"
-          />
-        </span>
+        <div className="table-tabs"></div>
       </div>
       <Table
         dataSource={tableData}

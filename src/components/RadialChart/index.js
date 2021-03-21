@@ -1,9 +1,9 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { Row, Col } from "antd";
-// import "../../custom.css";
+import "../DataTable/index.css";
 
-function RadialBarChart({ chartHeading = "" }) {
+function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
   const options = {
     chart: {
       height: 130,
@@ -56,7 +56,7 @@ function RadialBarChart({ chartHeading = "" }) {
             fontSize: "14px",
             formatter: function (w) {
               // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-              return 85;
+              return null;
             },
           },
         },
@@ -82,7 +82,6 @@ function RadialBarChart({ chartHeading = "" }) {
     labels: ["Total", "Active", "Inactive"],
     colors: ["#29B9CB", "#84E99C", "#0CA5D5"],
   };
-  const series = [85, 55, 30];
 
   const styles = {
     mainContainer: {
@@ -119,27 +118,18 @@ function RadialBarChart({ chartHeading = "" }) {
         xs={24}
         sm={12}
         style={{
-          alignItems: "flex-start",
-          display: "flex",
-          flexDirection: "column",
-          marginTop: 10,
+          margin: "auto",
         }}
       >
         <div style={styles.headContainer}>
-          <h5 className="customH3">{chartHeading} </h5>
+          <h5 className="main-heading">{chartHeading} </h5>
         </div>
-        <div style={styles.legendBox}>
-          <div style={{ ...styles.colorBox, backgroundColor: "#29B9CB" }} />
-          <p style={styles.legendText}>Total</p>
-        </div>
-        <div style={styles.legendBox}>
-          <div style={{ ...styles.colorBox, backgroundColor: "#84E99C" }} />
-          <p style={styles.legendText}>Active</p>
-        </div>
-        <div style={styles.legendBox}>
-          <div style={{ ...styles.colorBox, backgroundColor: "#0CA5D5" }} />
-          <p style={styles.legendText}>In active</p>
-        </div>
+        {legends.map((l) => (
+          <div style={styles.legendBox}>
+            <div style={{ ...styles.colorBox, backgroundColor: l.color }} />
+            <p style={styles.legendText}>{l.text}</p>
+          </div>
+        ))}
       </Col>
       <Col
         xs={24}
@@ -148,12 +138,12 @@ function RadialBarChart({ chartHeading = "" }) {
           alignItems: "flex-end",
           display: "flex",
           flexDirection: "column",
-          // justifyContent: "center",
+          justifyContent: "center",
         }}
       >
         <Chart
           options={options}
-          series={series}
+          series={data}
           type="radialBar"
           width={"180"}
           height={"180"}

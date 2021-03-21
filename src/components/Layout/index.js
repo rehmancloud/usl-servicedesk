@@ -4,11 +4,13 @@ import {
   HomeOutlined,
   TeamOutlined,
   CodeSandboxOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import "./index.css";
 import Header from "./Header";
 import { HtecLogo } from "../../utils/contentConstant";
+import { Footer } from "antd/lib/layout/layout";
 function Index({ children }) {
   const { Sider, Content } = Layout;
   const location = useLocation();
@@ -16,6 +18,9 @@ function Index({ children }) {
     navIcons: { fontSize: 20 },
     sidebar: {
       // height: "100vh",
+      // position: "fixed",
+      // left: 0,
+      // zIndex: 600,
     },
   };
   const [state, setState] = useState({

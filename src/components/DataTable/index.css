@@ -1,2 +1,12 @@
-.ant-table-thead {
+.main-heading {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+  color: #001a25;
+}
+.table-tabs {
+  float: right;
+}
+small {
+  font-size: 0.8rem;
+  color: #001a25;
 }
