@@ -52,22 +52,25 @@ function DataTable({
         </Col>
         {TABS.length > 0 && (
           <Col xs={12} md={10}>
-            <div style={{ float: "right" }}>
+            <span className="customSwitch">
               <Radio.Group
                 size={"small"}
                 options={TABS}
-                onChange={onChangeTab}
+                onChange={(e) => onChangeTab(e.target.value)}
                 value={activeTab}
                 optionType="button"
                 buttonStyle="solid"
-              />
-            </div>
+              >
+                {TABS.map((t, i) => (
+                  <Radio.Button key={i} value={t.value}>
+                    {t.label}
+                  </Radio.Button>
+                ))}
+              </Radio.Group>
+            </span>
           </Col>
         )}
       </Row>
-      <div className={``}>
-        <div className="table-tabs"></div>
-      </div>
       <Table
         dataSource={tableData}
         pagination={false}

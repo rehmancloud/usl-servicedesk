@@ -56,7 +56,7 @@ function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
             fontSize: "14px",
             formatter: function (w) {
               // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-              return null;
+              return "70";
             },
           },
         },
@@ -124,8 +124,8 @@ function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
         <div style={styles.headContainer}>
           <h5 className="main-heading">{chartHeading} </h5>
         </div>
-        {legends.map((l) => (
-          <div style={styles.legendBox}>
+        {legends.map((l, i) => (
+          <div key={i} style={styles.legendBox}>
             <div style={{ ...styles.colorBox, backgroundColor: l.color }} />
             <p style={styles.legendText}>{l.text}</p>
           </div>

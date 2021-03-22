@@ -63,7 +63,7 @@ function Index({ children }) {
             key="/Customer"
             icon={<TeamOutlined className="leftIcon" style={styles.navIcons} />}
           >
-            <Link to="/Customer" />
+            <Link to="/" />
             Customer
           </Menu.Item>
           <Menu.Item
@@ -76,7 +76,7 @@ function Index({ children }) {
               />
             }
           >
-            <Link to="/Supplier" />
+            <Link to="/" />
             Supplier
           </Menu.Item>
         </Menu>

@@ -1,5 +1,5 @@
 import { Card, Col, Row } from "antd";
-import React, { Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { RadialChart, LineChart, DataTable } from "../../components";
 import {
   RecentAddedSuppliers,
@@ -10,6 +10,8 @@ import {
 } from "../../utils/tableData";
 import "./index.css";
 function Index() {
+  const [recentTable, setRecentTable] = useState("Customers");
+  const [recentAlarm, setRecentAlarm] = useState("Type 01");
   const styles = {
     row: {
       marginTop: "8px",
@@ -81,6 +83,8 @@ function Index() {
                 subheading="Last 7d"
                 columns={columns1}
                 tabs={["Customers", "Suppliers"]}
+                activeTab={recentTable}
+                onChangeTab={setRecentTable}
                 tableData={RecentAddedSuppliers}
               />
             </Card>
@@ -139,6 +143,8 @@ function Index() {
                 heading="RECENT ALARMS"
                 columns={columns1}
                 tabs={["Type 01", "Type 02"]}
+                activeTab={recentAlarm}
+                onChangeTab={setRecentAlarm}
                 tableData={RecentAddedSuppliers}
               />
             </Card>

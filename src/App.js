@@ -1,5 +1,5 @@
 // import TodoApp from "./TodoApp";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { Layout } from "./components";
 import { privateRoutes } from "./routes/privateRoutes";
 function App() {
@@ -15,6 +15,7 @@ function App() {
               path={route.path}
             />
           ))}
+          <Redirect to="/" />
         </Layout>
       </Switch>
     </BrowserRouter>
