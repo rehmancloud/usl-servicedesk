@@ -444,7 +444,7 @@ export const RecentAddedSuppliers = [
     Time: moment().format("MM/DD - hh:mm:ss"),
     ID: "s001",
     Name: `BOOKER`,
-    Schedule: "Disable",
+    Schedule: "Enable",
   },
   {
     Time: moment().format("MM/DD - hh:mm:ss"),
@@ -483,7 +483,7 @@ export const RecentAddedCustomers = [
     Time: moment().format("MM/DD - hh:mm:ss"),
     ID: "c002",
     Name: `Customer 02`,
-    Schedule: "Disable",
+    Schedule: "Enable",
   },
   {
     Time: moment().format("MM/DD - hh:mm:ss"),
@@ -501,7 +501,7 @@ export const RecentAddedCustomers = [
     Time: moment().format("MM/DD - hh:mm:ss"),
     ID: "c005",
     Name: `Customer 05`,
-    Schedule: "Disable",
+    Schedule: "Enable",
   },
 ];
 

@@ -63,7 +63,7 @@ function Index({ children }) {
             key="/Customer"
             icon={<TeamOutlined className="leftIcon" style={styles.navIcons} />}
           >
-            <Link to="/" />
+            <Link to="/Customer" />
             Customer
           </Menu.Item>
           <Menu.Item
@@ -76,14 +76,19 @@ function Index({ children }) {
               />
             }
           >
-            <Link to="/" />
+            <Link to="/Supplier" />
             Supplier
           </Menu.Item>
         </Menu>
       </Sider>
-      <Layout className="site-layout">
+      <Layout style={{ height: "100vh" }} className="site-layout">
         <Header collapsed={state.collapsed} toggle={toggle} />
-        <Content className="site-layout-background">{children}</Content>
+        <Content
+          style={{ overflowY: "auto" }}
+          className="site-layout-background"
+        >
+          {children}
+        </Content>
       </Layout>
     </Layout>
   );

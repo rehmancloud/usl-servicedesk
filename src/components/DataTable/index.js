@@ -51,7 +51,7 @@ function DataTable({
           </h5>
         </Col>
         {TABS.length > 0 && (
-          <Col xs={12} md={10}>
+          <Col xs={12} sm={12} md={10}>
             <span className="customSwitch">
               <Radio.Group
                 size={"small"}
@@ -76,6 +76,7 @@ function DataTable({
         pagination={false}
         columns={tableHeader}
         size={"small"}
+        className="mb-3"
         // rowClassName={(record, index) => {}}
       />
     </Fragment>

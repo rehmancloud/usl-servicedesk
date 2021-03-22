@@ -3,6 +3,7 @@ import React, { useState, Fragment } from "react";
 import { RadialChart, LineChart, DataTable } from "../../components";
 import {
   RecentAddedSuppliers,
+  RecentAddedCustomers,
   FailedConnections,
   data1,
   data2,
@@ -17,8 +18,8 @@ function Index() {
       marginTop: "8px",
     },
     card: {
-      borderRadius: 15,
-      boxShadow: "5px 8px 24px 5px #e4e8f7",
+      borderRadius: 12,
+      boxShadow: "0px 3px 6px #00000014",
       margin: "8px 8px 0px 8px",
     },
   };
@@ -37,35 +38,38 @@ function Index() {
   ];
   const radialChart3Legends = [
     { text: "Total", color: "#29B9CB" },
-    { text: "Retrieve - Scheduled/Manual", color: "#84E99C" },
+    { text: "Retrieve", color: "#84E99C" },
     { text: "Import", color: "#0CA5D5" },
-    { text: "Export - Full/Partial", color: "#B19FDF" },
+    { text: "Export", color: "#B19FDF" },
   ];
   return (
     <Fragment>
       <div style={styles.row}>
         <Row>
-          <Col xs={24} sm={8}>
+          <Col xs={24} sm={24} md={8}>
             <Card style={styles.card} bordered={false}>
               <RadialChart
+                size="45"
                 legends={radialChart1Legends}
                 data={[80, 45, 75]}
                 chartHeading="CUSTOMERS"
               />
             </Card>
           </Col>
-          <Col xs={24} sm={8}>
+          <Col xs={24} sm={24} md={8}>
             <Card style={styles.card} bordered={false}>
               <RadialChart
+                size="45"
                 legends={radialChart2Legends}
                 data={[78, 30, 55]}
                 chartHeading="SUPPLIERS"
               />
             </Card>
           </Col>
-          <Col xs={24} sm={8}>
+          <Col xs={24} sm={24} md={8}>
             <Card style={styles.card} bordered={false}>
               <RadialChart
+                size="30"
                 legends={radialChart3Legends}
                 data={[88, 65, 35, 55]}
                 chartHeading="ACTIVE JOBS"
@@ -85,7 +89,11 @@ function Index() {
                 tabs={["Customers", "Suppliers"]}
                 activeTab={recentTable}
                 onChangeTab={setRecentTable}
-                tableData={RecentAddedSuppliers}
+                tableData={
+                  recentTable === "Customers"
+                    ? RecentAddedCustomers
+                    : RecentAddedSuppliers
+                }
               />
             </Card>
           </Col>
@@ -145,7 +153,11 @@ function Index() {
                 tabs={["Type 01", "Type 02"]}
                 activeTab={recentAlarm}
                 onChangeTab={setRecentAlarm}
-                tableData={RecentAddedSuppliers}
+                tableData={
+                  recentAlarm === "Type 01"
+                    ? RecentAddedCustomers
+                    : RecentAddedSuppliers
+                }
               />
             </Card>
           </Col>

@@ -46,7 +46,7 @@ const LineChart = (props) => {
       },
     },
   };
-  return <Line {...config} height={props.height || 400} />;
+  return <Line className="mb-3" {...config} height={props.height || 400} />;
 };
 
 export default LineChart;

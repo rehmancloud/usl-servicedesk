@@ -3,7 +3,14 @@ import Chart from "react-apexcharts";
 import { Row, Col } from "antd";
 import "../DataTable/index.css";
 
-function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
+function RadialChart({
+  chartHeading = "",
+  legends = [],
+  data = [],
+  size = "34",
+  width = 160,
+  height = 160,
+}) {
   const options = {
     chart: {
       height: 130,
@@ -16,7 +23,7 @@ function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
       radialBar: {
         hollow: {
           margin: 8,
-          size: "48",
+          size,
           background: "transparent",
           image: undefined,
         },
@@ -33,7 +40,7 @@ function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
           show: true,
           name: {
             show: true,
-            fontSize: "14px",
+            fontSize: "12px",
             fontFamily: undefined,
             fontWeight: 600,
             color: undefined,
@@ -52,11 +59,11 @@ function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
           },
           total: {
             show: true,
-            label: "Total",
-            fontSize: "14px",
+            label: legends[0] ? legends[0].text : "",
+            fontSize: "12px",
             formatter: function (w) {
               // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-              return "70";
+              return data[0];
             },
           },
         },
@@ -79,8 +86,18 @@ function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
         },
       ],
     },
-    labels: ["Total", "Active", "Inactive"],
-    colors: ["#29B9CB", "#84E99C", "#0CA5D5"],
+    labels: [
+      legends[0] ? legends[0].text : "",
+      legends[1] ? legends[1].text : "",
+      legends[2] ? legends[2].text : "",
+      legends[3] ? legends[3].text : "",
+    ],
+    colors: [
+      legends[0] ? legends[0].color : "",
+      legends[1] ? legends[1].color : "",
+      legends[2] ? legends[2].color : "",
+      legends[3] ? legends[3].color : "",
+    ],
   };
 
   const styles = {
@@ -102,7 +119,7 @@ function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
       marginBottom: 5,
       marginLeft: 5,
     },
-    legendText: { fontSize: 10, marginBottom: 0, marginRight: 10 },
+    legendText: { fontSize: 11, marginBottom: 0 },
     headContainer: { marginTop: 0, marginBottom: 10 },
     cardHeading: {
       marginRight: 5,
@@ -114,13 +131,7 @@ function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
 
   return (
     <Row>
-      <Col
-        xs={24}
-        sm={12}
-        style={{
-          margin: "auto",
-        }}
-      >
+      <Col xs={24} sm={12} className="mt-3">
         <div style={styles.headContainer}>
           <h5 className="main-heading">{chartHeading} </h5>
         </div>
@@ -145,12 +156,12 @@ function RadialBarChart({ chartHeading = "", legends = [], data = [] }) {
           options={options}
           series={data}
           type="radialBar"
-          width={"180"}
-          height={"180"}
+          width={width}
+          height={height}
         />
       </Col>
     </Row>
   );
 }
 
-export default RadialBarChart;
+export default RadialChart;
