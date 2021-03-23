@@ -1,0 +1,9 @@
+.ant-card-body {
+  padding: 2px 15px !important;
+}
+
+.main-heading {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+  color: #001a25;
+}

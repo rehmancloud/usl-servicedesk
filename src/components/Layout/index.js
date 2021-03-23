@@ -4,24 +4,16 @@ import {
   HomeOutlined,
   TeamOutlined,
   CodeSandboxOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import "./index.css";
 import Header from "./Header";
 import { HtecLogo } from "../../utils/contentConstant";
-import { Footer } from "antd/lib/layout/layout";
 function Index({ children }) {
   const { Sider, Content } = Layout;
   const location = useLocation();
   const styles = {
     navIcons: { fontSize: 20 },
-    sidebar: {
-      // height: "100vh",
-      // position: "fixed",
-      // left: 0,
-      // zIndex: 600,
-    },
   };
   const [state, setState] = useState({
     collapsed: false,
@@ -41,7 +33,6 @@ function Index({ children }) {
         trigger={null}
         collapsible
         collapsed={state.collapsed}
-        style={styles.sidebar}
       >
         <img src={HtecLogo} alt="htec-Logo" className="customLogo" />
         <Menu
@@ -53,30 +44,25 @@ function Index({ children }) {
           <Menu.Item
             className="nav-links"
             key="/"
-            icon={<HomeOutlined className="leftIcon" style={styles.navIcons} />}
+            icon={<HomeOutlined style={styles.navIcons} />}
           >
             <Link to="/" />
             Dashboard
           </Menu.Item>
           <Menu.Item
             className="nav-links"
-            key="/Customer"
-            icon={<TeamOutlined className="leftIcon" style={styles.navIcons} />}
+            key="/customer"
+            icon={<TeamOutlined style={styles.navIcons} />}
           >
-            <Link to="/Customer" />
+            <Link to="/customer" />
             Customer
           </Menu.Item>
           <Menu.Item
             className="nav-links"
-            key="/Supplier"
-            icon={
-              <CodeSandboxOutlined
-                className="leftIcon"
-                style={styles.navIcons}
-              />
-            }
+            key="/supplier"
+            icon={<CodeSandboxOutlined style={styles.navIcons} />}
           >
-            <Link to="/Supplier" />
+            <Link to="/supplier" />
             Supplier
           </Menu.Item>
         </Menu>
