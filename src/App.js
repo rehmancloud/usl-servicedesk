@@ -1,4 +1,3 @@
-// import TodoApp from "./TodoApp";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { Layout } from "./components";
 import { privateRoutes } from "./routes/privateRoutes";

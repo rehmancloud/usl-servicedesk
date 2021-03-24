@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Menu, Dropdown, Badge, PageHeader } from "antd";
+import { Layout, Menu, Dropdown, Badge } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -8,8 +8,10 @@ import {
   LogoutOutlined,
   CaretDownOutlined,
 } from "@ant-design/icons";
+import { NotificationPanel } from "../";
 import "./index.css";
 function Index({ collapsed, toggle }) {
+  const Notifications = <NotificationPanel />;
   const { Header } = Layout;
   const toggleFullscreen = () => {
     if (
@@ -59,7 +61,13 @@ function Index({ collapsed, toggle }) {
 
       <ExpandOutlined className="header-btn" onClick={toggleFullscreen} />
       <Badge showZero className="bell-icon" size="small" count={0}>
-        <BellOutlined onClick={() => {}} />
+        <Dropdown
+          placement="bottomCenter"
+          overlay={Notifications}
+          trigger={["click"]}
+        >
+          <BellOutlined />
+        </Dropdown>
       </Badge>
     </Header>
   );

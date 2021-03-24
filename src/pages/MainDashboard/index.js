@@ -46,7 +46,7 @@ function Index() {
     <Fragment>
       <div style={styles.row}>
         <Row>
-          <Col md={24} lg={8}>
+          <Col xs={24} sm={24} md={24} lg={8}>
             <Card style={styles.card} bordered={false}>
               <RadialChart
                 size="45"
@@ -56,7 +56,7 @@ function Index() {
               />
             </Card>
           </Col>
-          <Col md={24} lg={8}>
+          <Col xs={24} sm={24} md={24} lg={8}>
             <Card style={styles.card} bordered={false}>
               <RadialChart
                 size="45"
@@ -66,7 +66,7 @@ function Index() {
               />
             </Card>
           </Col>
-          <Col md={24} lg={8}>
+          <Col xs={24} sm={24} md={24} lg={8}>
             <Card style={styles.card} bordered={false}>
               <RadialChart
                 size="30"
@@ -120,13 +120,13 @@ function Index() {
       </div>
       <div style={styles.row}>
         <Row>
-          <Col md={24} lg={12}>
+          <Col xs={24} sm={24} md={24} lg={12}>
             <Card style={styles.card} bordered={false}>
               <h5 className="main-heading mt-3">RUNNING JOBS</h5>
               <LineChart data={data1} height={235} />
             </Card>
           </Col>
-          <Col md={24} lg={12}>
+          <Col xs={24} sm={24} md={24} lg={12}>
             <Card style={styles.card} bordered={false}>
               <h5 className="main-heading mt-3">JOBS</h5>
               <LineChart data={data2} height={235} />
@@ -161,7 +161,7 @@ function Index() {
               />
             </Card>
           </Col>
-          <Col md={24} lg={12}>
+          <Col xs={24} sm={24} md={24} lg={12}>
             <Card style={styles.card} bordered={false}>
               <h5 className="main-heading mt-3">ALARM ANALYTICS</h5>
               <LineChart data={data3} height={235} />
