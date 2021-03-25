@@ -11,24 +11,24 @@ function Index() {
   };
   const data = [
     {
-      title: "Customer",
-      text: "Racing car sprays burning fuel crowd.",
+      title: "Customer 01",
+      text: "Retrive Failed Server error",
       type: "warning",
       new: true,
     },
     {
       title: "Supplier",
-      text: "Japanese princess to wed commoner",
+      text: "Invalid supplier config",
       type: "error",
     },
     {
       title: "Customer",
-      text: "Australian walks 100km after outback",
+      text: "Import in progress",
       type: "progress",
     },
     {
-      title: "Supplier",
-      text: "Racing car sprays burning fuel crowd.",
+      title: "Customer 02",
+      text: "Retrive sucessfull",
       type: "ok",
     },
   ];
@@ -56,7 +56,7 @@ function Index() {
           </Row>
           <Row>
             <Col xs={16} sm={16}>
-              <p className="m-0">{item.text}</p>
+              <p className="m-0 mr-1">{item.text}</p>
             </Col>
             <Col xs={8} sm={8}>
               <small className="float-right">
