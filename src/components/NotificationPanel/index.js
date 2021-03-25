@@ -1,5 +1,6 @@
-import { List, Button } from "antd";
+import { List, Button, Row, Col } from "antd";
 import React from "react";
+import moment from "moment";
 import "./index.css";
 function Index() {
   const styles = {
@@ -43,14 +44,28 @@ function Index() {
               : `p-3 border-bottom old-notification`
           }
         >
-          <h6 className="d-inline">{item.title}</h6>
-          <br />
-          <p className="d-inline">{item.text}</p>
-          <div className="float-right ml-2">
-            <Button size={"small"} style={styles[item.type]} type="primary">
-              {item.type}
-            </Button>
-          </div>
+          <Row>
+            <Col xs={12} sm={12}>
+              <h6 className="m-0">{item.title}</h6>
+            </Col>
+            <Col xs={12} sm={12}>
+              <small className="float-right mr-1">
+                {moment().format("hh:mm A")}
+              </small>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={16} sm={16}>
+              <p className="m-0">{item.text}</p>
+            </Col>
+            <Col xs={8} sm={8}>
+              <small className="float-right">
+                <Button size={"small"} style={styles[item.type]} type="primary">
+                  {item.type}
+                </Button>
+              </small>
+            </Col>
+          </Row>
         </div>
       )}
     />
