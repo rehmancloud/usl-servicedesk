@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Layout, Menu } from "antd";
 import {
   HomeOutlined,
   TeamOutlined,
   CodeSandboxOutlined,
+  NotificationOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import Header from "./Header";
 import { HtecLogo } from "../../utils/contentConstant";
 import "./index.css";
+import SubMenu from "antd/lib/menu/SubMenu";
 
 function Index({ children }) {
   const { Sider, Content } = Layout;
@@ -50,14 +52,31 @@ function Index({ children }) {
             <Link to="/" />
             Dashboard
           </Menu.Item>
-          <Menu.Item
-            className="nav-links"
-            key="/customer"
-            icon={<TeamOutlined style={styles.navIcons} />}
+          <SubMenu
+            title={
+              <Fragment>
+                <TeamOutlined style={styles.navIcons} />
+                <span className="nav-links">Customer</span>
+              </Fragment>
+            }
           >
-            <Link to="/customer" />
-            Customer
-          </Menu.Item>
+            <Menu.Item
+              className="nav-links"
+              key="/customer"
+              // icon={<TeamOutlined style={styles.navIcons} />}
+            >
+              <Link to="/customer" />
+              Dashboard
+            </Menu.Item>
+            <Menu.Item
+              className="nav-links"
+              key="/job-listing"
+              // icon={<TeamOutlined style={styles.navIcons} />}
+            >
+              <Link to="/job-listing" />
+              Job Listing
+            </Menu.Item>
+          </SubMenu>
           <Menu.Item
             className="nav-links"
             key="/supplier"
