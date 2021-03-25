@@ -73,3 +73,22 @@
 .ant-menu-item-selected {
   background-color: transparent !important;
 }
+
+/* li.ant-menu-item-selected {
+  background-color: transparent !important;
+}
+li.ant-menu-item {
+  padding: 5px !important;
+}
+​ li.ant-menu-item-selected,
+li.ant-menu-item-active {
+  color: #001a25 !important;
+  background-color: #fff !important;
+  border-radius: 5px !important;
+}
+
+li.ant-menu-item-selected {
+  color: #001a25 !important;
+  background-color: #fff !important;
+  border-radius: 5px !important;
+} */

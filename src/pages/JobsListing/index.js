@@ -1,10 +1,9 @@
 import { Card, Col, Row } from "antd";
 import React, { useState, Fragment } from "react";
-
+import { DataTable } from "../../components";
+import { jobListing } from "../../utils/tableData";
 import "./index.css";
 function Index() {
-  const [recentTable, setRecentTable] = useState("Customers");
-  const [recentAlarm, setRecentAlarm] = useState("Type 01");
   const styles = {
     row: {
       marginTop: "8px",
@@ -16,13 +15,27 @@ function Index() {
     },
   };
 
+  const tableHeader = [
+    "Customer Name",
+    "Status",
+    "Start Time",
+    "End Start",
+    "Job Type",
+    "Job Trigger",
+  ];
+
   return (
     <Fragment>
       <div style={styles.row}>
         <Row>
           <Col xs={24}>
             <Card style={styles.card} bordered={false}>
-              <h5 className="main-heading my-3">SUPPLIER DASHBOARD</h5>
+              <DataTable
+                heading="JOBS LISTING"
+                columns={tableHeader}
+                pagination={true}
+                tableData={jobListing}
+              />
             </Card>
           </Col>
         </Row>

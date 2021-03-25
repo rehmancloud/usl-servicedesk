@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "@ant-design/charts";
 
-const LineChart = (props) => {
-  const [data, setData] = useState([]);
+const LineChart = ({ data = [], height = 250, colors = [] }) => {
+  const [chartData, setChartData] = useState([]);
   useEffect(() => {
-    setData(props.data);
+    setChartData(data);
   }, []);
   const COLOR_PLATE_10 = [
     "#5B8FF9",
@@ -19,12 +19,12 @@ const LineChart = (props) => {
     "#FF99C3",
   ];
   const config = {
-    data: data,
+    data: chartData,
     xField: "year",
     yField: "value",
     seriesField: "category",
     yAxis: {
-      // type: 'timeCat',
+      // type: "timeCat",
       tickCount: 5,
       // label: {
       //   formatter: function formatter(v:any) {
@@ -34,7 +34,7 @@ const LineChart = (props) => {
       //   },
       // },
     },
-    color: COLOR_PLATE_10,
+    color: colors,
     point: {
       shape: function shape(_ref) {
         const category = _ref.category;
@@ -46,7 +46,7 @@ const LineChart = (props) => {
       },
     },
   };
-  return <Line className="mb-3" {...config} height={props.height || 400} />;
+  return <Line className="mb-3" {...config} height={height} />;
 };
 
 export default LineChart;

@@ -1,4 +1,9 @@
-import { MainDashboard, SupplierPage, CustomerPage } from "../pages";
+import {
+  MainDashboard,
+  SupplierPage,
+  CustomerPage,
+  JobsListing,
+} from "../pages";
 export const privateRoutes = [
   {
     isExact: true,
@@ -14,5 +19,10 @@ export const privateRoutes = [
     isExact: true,
     path: "/customer",
     component: CustomerPage,
+  },
+  {
+    isExact: true,
+    path: "/job-listing",
+    component: JobsListing,
   },
 ];

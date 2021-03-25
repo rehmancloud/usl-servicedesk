@@ -13,6 +13,7 @@ function Index() {
       title: "Customer",
       text: "Racing car sprays burning fuel crowd.",
       type: "warning",
+      new: true,
     },
     {
       title: "Supplier",
@@ -33,10 +34,15 @@ function Index() {
   return (
     <List
       className="bg-white mt-2 mr-3 list-panel"
-      size="large"
       dataSource={data}
       renderItem={(item) => (
-        <div className="p-3 border-bottom">
+        <div
+          className={
+            item.new
+              ? `p-3 border-bottom`
+              : `p-3 border-bottom old-notification`
+          }
+        >
           <h6 className="d-inline">{item.title}</h6>
           <br />
           <p className="d-inline">{item.text}</p>

@@ -6,9 +6,10 @@ import {
   CodeSandboxOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
-import "./index.css";
 import Header from "./Header";
 import { HtecLogo } from "../../utils/contentConstant";
+import "./index.css";
+
 function Index({ children }) {
   const { Sider, Content } = Layout;
   const location = useLocation();

@@ -14,7 +14,7 @@ function App() {
               path={route.path}
             />
           ))}
-          <Redirect to="/" />
+          {/* <Redirect to="/" /> */}
         </Layout>
       </Switch>
     </BrowserRouter>

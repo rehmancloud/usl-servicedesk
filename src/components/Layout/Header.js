@@ -10,6 +10,7 @@ import {
 } from "@ant-design/icons";
 import { NotificationPanel } from "../";
 import "./index.css";
+
 function Index({ collapsed, toggle }) {
   const Notifications = <NotificationPanel />;
   const { Header } = Layout;

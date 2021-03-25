@@ -1,6 +1,7 @@
 import { Radio, Table, Tooltip, Row, Col } from "antd";
 import React, { Fragment, useState, useEffect } from "react";
 import "./index.css";
+
 function DataTable({
   heading = "",
   subheading = "",
@@ -9,6 +10,7 @@ function DataTable({
   onChangeTab,
   columns = [],
   activeTab = "",
+  pagination = false,
 }) {
   const [tableHeader, setTableHeader] = useState([]);
   const [TABS, SETTABS] = useState([]);
@@ -21,13 +23,13 @@ function DataTable({
           title: <p style={{ display: "inline", fontWeight: "bold" }}>{c}</p>,
           dataIndex: c,
           key: c,
-          ellipsis: true,
-          // sorter: (a, b) => moment(a.time).unix() - moment(b.time).unix(),
-          render: (text) => (
-            <Tooltip placement="topLeft" title={text}>
-              {text}
-            </Tooltip>
-          ),
+          // ellipsis: true,
+          // sorter: (a, b) => {},
+          // render: (text) => (
+          //   <Tooltip placement="topLeft" title={text}>
+          //     {text}
+          //   </Tooltip>
+          // ),
         });
     });
     setTableHeader(h);
@@ -43,13 +45,15 @@ function DataTable({
 
   return (
     <Fragment>
-      <Row style={{ margin: "18px 0 5px 0" }}>
-        <Col xs={12} md={TABS.length > 0 ? 14 : 24}>
-          <h5 className="main-heading">
-            {heading}
-            <small>{` ${subheading}`}</small>
-          </h5>
-        </Col>
+      <Row style={heading && { margin: "18px 0 5px 0" }}>
+        {heading && (
+          <Col xs={12} md={TABS.length > 0 ? 14 : 24}>
+            <h5 className="main-heading">
+              {heading}
+              <small>{` ${subheading}`}</small>
+            </h5>
+          </Col>
+        )}
         {TABS.length > 0 && (
           <Col xs={12} sm={12} md={10}>
             <span className="customSwitch">
@@ -73,7 +77,7 @@ function DataTable({
       </Row>
       <Table
         dataSource={tableData}
-        pagination={false}
+        pagination={pagination}
         columns={tableHeader}
         size={"small"}
         className="mb-3"

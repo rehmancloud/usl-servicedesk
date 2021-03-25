@@ -80,7 +80,7 @@ function Index() {
       </div>
       <div style={styles.row}>
         <Row>
-          <Col md={24} lg={12}>
+          <Col xs={24} sm={24} md={24} lg={12}>
             <Card style={styles.card} bordered={false}>
               <DataTable
                 heading="RECENT ADDED"
@@ -97,7 +97,7 @@ function Index() {
               />
             </Card>
           </Col>
-          <Col md={24} lg={12}>
+          <Col xs={24} sm={24} md={24} lg={12}>
             <Card style={styles.card} bordered={false}>
               <DataTable
                 heading="FAILED CONNECTIONS"
@@ -123,13 +123,43 @@ function Index() {
           <Col xs={24} sm={24} md={24} lg={12}>
             <Card style={styles.card} bordered={false}>
               <h5 className="main-heading mt-3">RUNNING JOBS</h5>
-              <LineChart data={data1} height={235} />
+              <LineChart
+                colors={[
+                  "#5B8FF9",
+                  "#5AD8A6",
+                  "#5D7092",
+                  "#F6BD16",
+                  "#E8684A",
+                  "#6DC8EC",
+                  "#9270CA",
+                  "#FF9D4D",
+                  "#269A99",
+                  "#FF99C3",
+                ]}
+                data={data1}
+                height={235}
+              />
             </Card>
           </Col>
           <Col xs={24} sm={24} md={24} lg={12}>
             <Card style={styles.card} bordered={false}>
               <h5 className="main-heading mt-3">JOBS</h5>
-              <LineChart data={data2} height={235} />
+              <LineChart
+                colors={[
+                  "#5B8FF9",
+                  "#5AD8A6",
+                  "#5D7092",
+                  "#F6BD16",
+                  "#E8684A",
+                  "#6DC8EC",
+                  "#9270CA",
+                  "#FF9D4D",
+                  "#269A99",
+                  "#FF99C3",
+                ]}
+                data={data2}
+                height={235}
+              />
             </Card>
           </Col>
         </Row>
@@ -145,7 +175,7 @@ function Index() {
       </div>
       <div style={styles.row}>
         <Row>
-          <Col md={24} lg={12}>
+          <Col xs={24} sm={24} md={24} lg={12}>
             <Card style={styles.card} bordered={false}>
               <DataTable
                 heading="RECENT ALARMS"
@@ -164,7 +194,22 @@ function Index() {
           <Col xs={24} sm={24} md={24} lg={12}>
             <Card style={styles.card} bordered={false}>
               <h5 className="main-heading mt-3">ALARM ANALYTICS</h5>
-              <LineChart data={data3} height={235} />
+              <LineChart
+                colors={[
+                  "#5B8FF9",
+                  "#5AD8A6",
+                  "#5D7092",
+                  "#F6BD16",
+                  "#E8684A",
+                  "#6DC8EC",
+                  "#9270CA",
+                  "#FF9D4D",
+                  "#269A99",
+                  "#FF99C3",
+                ]}
+                data={data3}
+                height={235}
+              />
             </Card>
           </Col>
         </Row>
